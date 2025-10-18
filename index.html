@@ -24,6 +24,8 @@
             --light-accent-cyan: #06b6d4;
             --light-accent-purple: #8b5cf6;
             --light-accent-green: #10b981;
+            --light-accent-orange: #f59e0b;
+            --light-accent-pink: #ec4899;
             --light-border: #e2e8f0;
             --light-shadow: rgba(0, 0, 0, 0.08);
             --light-shadow-lg: rgba(0, 0, 0, 0.12);
@@ -38,6 +40,8 @@
             --dark-accent-cyan: #22d3ee;
             --dark-accent-purple: #a78bfa;
             --dark-accent-green: #34d399;
+            --dark-accent-orange: #fbbf24;
+            --dark-accent-pink: #f472b6;
             --dark-border: #475569;
             --dark-shadow: rgba(0, 0, 0, 0.25);
             --dark-shadow-lg: rgba(0, 0, 0, 0.35);
@@ -52,6 +56,8 @@
             --accent-cyan: var(--light-accent-cyan);
             --accent-purple: var(--light-accent-purple);
             --accent-green: var(--light-accent-green);
+            --accent-orange: var(--light-accent-orange);
+            --accent-pink: var(--light-accent-pink);
             --border: var(--light-border);
             --shadow: var(--light-shadow);
             --shadow-lg: var(--light-shadow-lg);
@@ -69,39 +75,9 @@
             --shadow-lg: 0 15px 40px var(--shadow-lg);
             --shadow-xl: 0 25px 50px var(--shadow-lg);
 
-            /* Glow Effects */
-            --glow-1-x: 0;
-            --glow-1-y: 0;
-            --glow-1-hue: 210;
-            --glow-2-x: 0;
-            --glow-2-y: 0;
-            --glow-2-hue: 160;
-            --glow-3-x: 0;
-            --glow-3-y: 0;
-            --glow-3-hue: 270;
-            --glow-4-x: 0;
-            --glow-4-y: 0;
-            --glow-4-hue: 120;
-            --glow-5-x: 0;
-            --glow-5-y: 0;
-            --glow-5-hue: 190;
-            --glow-6-x: 0;
-            --glow-6-y: 0;
-            --glow-6-hue: 320;
-            --glow-7-x: 0;
-            --glow-7-y: 0;
-            --glow-7-hue: 40;
-            --glow-8-x: 0;
-            --glow-8-y: 0;
-            --glow-8-hue: 280;
-            --glow-9-x: 0;
-            --glow-9-y: 0;
-            --glow-9-hue: 200;
-            --glow-10-x: 0;
-            --glow-10-y: 0;
-            --glow-10-hue: 140;
-
-            --glow-size: 120px;
+            /* Enhanced Glow Effects */
+            --glow-size: 150px;
+            --glow-opacity: 0.8;
         }
 
         [data-theme="dark"] {
@@ -114,6 +90,8 @@
             --accent-cyan: var(--dark-accent-cyan);
             --accent-purple: var(--dark-accent-purple);
             --accent-green: var(--dark-accent-green);
+            --accent-orange: var(--dark-accent-orange);
+            --accent-pink: var(--dark-accent-pink);
             --border: var(--dark-border);
             --shadow: var(--dark-shadow);
             --shadow-lg: var(--dark-shadow-lg);
@@ -144,7 +122,7 @@
             width: 100%;
         }
 
-        /* Theme Toggle */
+        /* Enhanced Theme Toggle */
         .theme-toggle {
             position: fixed;
             top: 2rem;
@@ -168,6 +146,7 @@
         .theme-toggle:hover {
             transform: rotate(15deg) scale(1.1);
             border-color: var(--accent-blue);
+            box-shadow: 0 8px 30px var(--shadow-lg);
         }
 
         .theme-toggle i {
@@ -176,7 +155,7 @@
             transition: var(--transition);
         }
 
-        /* Header Section */
+        /* Enhanced Header Section */
         header {
             padding: 4rem 0 3rem;
             text-align: center;
@@ -193,10 +172,10 @@
             transform: translate(-50%, -50%);
             width: 400px;
             height: 400px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan), var(--accent-purple));
             border-radius: 50%;
             filter: blur(100px);
-            opacity: 0.08;
+            opacity: 0.1;
             animation: float 8s ease-in-out infinite;
         }
 
@@ -212,6 +191,7 @@
             line-height: 1.1;
             animation: slideInDown 0.8s ease-out;
             position: relative;
+            text-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
         }
 
         .header-subtitle {
@@ -236,7 +216,7 @@
             align-items: start;
         }
 
-        /* New Profile Card Design */
+        /* Enhanced Profile Card Design */
         .profile-section {
             position: relative;
         }
@@ -307,12 +287,20 @@
             width: clamp(180px, 30vw, 220px);
             height: clamp(180px, 30vw, 220px);
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan), var(--accent-purple));
             padding: 8px;
             box-shadow: 
                 0 20px 60px rgba(59, 130, 246, 0.3),
                 inset 0 2px 20px rgba(255, 255, 255, 0.2);
             animation: bounceIn 1s ease-out 0.6s both;
+            transition: var(--transition);
+        }
+
+        .profile-image-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 25px 80px rgba(59, 130, 246, 0.4),
+                inset 0 2px 20px rgba(255, 255, 255, 0.3);
         }
 
         .profile-image {
@@ -332,7 +320,7 @@
         }
 
         .profile-image:hover {
-            transform: scale(1.05) rotate(5deg);
+            transform: rotate(5deg);
         }
 
         .profile-image::before {
@@ -343,23 +331,29 @@
             border-radius: 50%;
         }
 
-        .profile-icon-badge {
+        .cyber-badge {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             right: -10px;
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: var(--shadow-lg);
+            font-size: 2rem;
+            box-shadow: var(--shadow-xl);
             z-index: 4;
             border: 4px solid var(--primary);
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulseGlow 2s ease-in-out infinite;
+            transition: var(--transition);
+        }
+
+        .cyber-badge:hover {
+            transform: scale(1.1) rotate(15deg);
+            animation: none;
         }
 
         .profile-name {
@@ -402,32 +396,44 @@
         .profile-birthdate:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
+            background: var(--secondary);
         }
 
         .profile-specialization {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
             padding: 1.5rem 2rem;
             background: linear-gradient(135deg, var(--tertiary), var(--secondary));
             border-radius: var(--radius-xl);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .profile-specialization:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .specialization-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-md);
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .specialization-icon:hover {
+            transform: scale(1.1) rotate(10deg);
         }
 
         .specialization-text {
@@ -438,7 +444,7 @@
             letter-spacing: 1px;
         }
 
-        /* Contact Details Section */
+        /* Enhanced Contact Details Section */
         .contact-section {
             position: relative;
         }
@@ -576,14 +582,14 @@
             gap: 1rem;
         }
 
-        /* Individual Glow Buttons */
+        /* Enhanced Glow Buttons with Individual Animations */
         .glow-button {
             border-radius: var(--radius-lg);
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 0.05em;
             background: var(--primary);
-            border: 2px solid transparent;
+            border: 2px solid var(--border);
             box-shadow: var(--shadow-md);
             cursor: pointer;
             position: relative;
@@ -596,109 +602,99 @@
             font-size: 0.95rem;
             min-height: 54px;
             overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        /* Individual glow effects for each button */
-        .glow-button[data-copy="01000006432"] {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-1-hue) 80% 85%),
-                    hsl(var(--glow-1-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-1-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-1-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
-        }
-
-        .glow-button[data-copy="01284284043"] {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-2-hue) 80% 85%),
-                    hsl(var(--glow-2-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-2-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-2-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
-        }
-
-        .glow-button[data-copy="01557222300"] {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-3-hue) 80% 85%),
-                    hsl(var(--glow-3-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-3-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-3-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
-        }
-
-        .glow-button[data-copy="badrelbadry2009@gmail.com"] {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-4-hue) 80% 85%),
-                    hsl(var(--glow-4-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-4-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-4-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
+            transition: all 0.4s ease;
+            isolation: isolate;
         }
 
         .glow-button::before {
-            content: "";
+            content: '';
             position: absolute;
             inset: 0;
-            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
-            background: var(--primary);
-            z-index: 1;
-            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            opacity: 0;
             transition: var(--transition);
-        }
-
-        .glow-button span {
-            background: inherit;
-            background-clip: text;
-            color: transparent;
-            z-index: 2;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-weight: 700;
+            z-index: -1;
         }
 
         .glow-button::after {
-            content: "";
+            content: '';
             position: absolute;
             inset: -2px;
-            filter: blur(16px);
-            border: 2px solid transparent;
-            background: inherit;
+            background: conic-gradient(
+                from 0deg,
+                var(--accent-blue),
+                var(--accent-cyan),
+                var(--accent-purple),
+                var(--accent-green),
+                var(--accent-blue)
+            );
             border-radius: var(--radius-lg);
-            opacity: 0.7;
+            opacity: 0;
+            filter: blur(8px);
+            transition: var(--transition);
+            z-index: -2;
+            animation: rotate 3s linear infinite;
+        }
+
+        .glow-button span {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .glow-button i {
+            color: var(--accent-blue);
             transition: var(--transition);
         }
 
         .glow-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .glow-button:hover::before {
+            opacity: 1;
         }
 
         .glow-button:hover::after {
-            opacity: 1;
-            filter: blur(20px);
+            opacity: 0.8;
         }
 
-        .glow-button:active {
-            transform: translateY(0);
+        .glow-button:hover span {
+            color: white;
+            background: transparent;
         }
 
-        /* Action Buttons with Individual Glow */
+        .glow-button:hover i {
+            color: white;
+        }
+
+        /* Individual Button Colors */
+        .glow-button[data-copy="01000006432"]::before,
+        .glow-button[data-copy="01000006432"]::after {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+        }
+
+        .glow-button[data-copy="01284284043"]::before,
+        .glow-button[data-copy="01284284043"]::after {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+        }
+
+        .glow-button[data-copy="01557222300"]::before,
+        .glow-button[data-copy="01557222300"]::after {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+        }
+
+        .glow-button[data-copy="badrelbadry2009@gmail.com"]::before,
+        .glow-button[data-copy="badrelbadry2009@gmail.com"]::after {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
+        }
+
+        /* Enhanced Action Buttons */
         .action-buttons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -711,42 +707,36 @@
         }
 
         .btn-call {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-5-hue) 80% 85%),
-                    hsl(var(--glow-5-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-5-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-5-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
+            --accent-color-1: var(--accent-green);
+            --accent-color-2: var(--accent-cyan);
         }
 
         .btn-whatsapp {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-6-hue) 80% 85%),
-                    hsl(var(--glow-6-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-6-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-6-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
+            --accent-color-1: #25D366;
+            --accent-color-2: #128C7E;
         }
 
         .btn-copy-all {
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-7-hue) 80% 85%),
-                    hsl(var(--glow-7-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-7-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-7-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
+            --accent-color-1: var(--accent-purple);
+            --accent-color-2: var(--accent-pink);
         }
 
-        /* Download Section */
+        .btn-call::before,
+        .btn-call::after {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+        }
+
+        .btn-whatsapp::before,
+        .btn-whatsapp::after {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .btn-copy-all::before,
+        .btn-copy-all::after {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+        }
+
+        /* Enhanced Download Section */
         .download-section {
             text-align: center;
             margin-top: 5rem;
@@ -795,15 +785,8 @@
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 0.1em;
-            background:
-                linear-gradient(var(--primary), var(--primary)) padding-box,
-                radial-gradient(50% 50% at center,
-                    hsl(var(--glow-8-hue) 80% 85%),
-                    hsl(var(--glow-8-hue) 80% 70%),
-                    transparent) 
-                calc((var(--glow-8-x) * 1px) - (var(--glow-size) * 0.5)) 
-                calc((var(--glow-8-y) * 1px) - (var(--glow-size) * 0.5)) / var(--glow-size) var(--glow-size) no-repeat fixed,
-                linear-gradient(var(--border), var(--border)) border-box;
+            background: var(--primary);
+            border: 3px solid var(--border);
             box-shadow: var(--shadow-lg);
             cursor: pointer;
             position: relative;
@@ -814,56 +797,79 @@
             align-items: center;
             justify-content: center;
             gap: 1.25rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             z-index: 2;
+            isolation: isolate;
         }
 
         .btn-download::before {
             content: "";
             position: absolute;
             inset: 0;
-            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
-            background: var(--primary);
-            z-index: 1;
-            border-radius: var(--radius-xl);
-        }
-
-        .btn-download span {
-            background: inherit;
-            background-clip: text;
-            color: transparent;
-            z-index: 2;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
         }
 
         .btn-download::after {
             content: "";
             position: absolute;
             inset: -3px;
-            filter: blur(24px);
-            border: 3px solid transparent;
-            background: inherit;
+            background: conic-gradient(
+                from 0deg,
+                var(--accent-blue),
+                var(--accent-cyan),
+                var(--accent-purple),
+                var(--accent-green),
+                var(--accent-blue)
+            );
             border-radius: var(--radius-xl);
-            opacity: 0.8;
+            opacity: 0;
+            filter: blur(12px);
+            transition: var(--transition);
+            z-index: -2;
+            animation: rotate 2s linear infinite;
+        }
+
+        .btn-download span {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            transition: var(--transition);
+        }
+
+        .btn-download i {
+            color: var(--accent-blue);
             transition: var(--transition);
         }
 
         .btn-download:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .btn-download:hover::before {
+            opacity: 1;
         }
 
         .btn-download:hover::after {
-            opacity: 1;
-            filter: blur(28px);
+            opacity: 0.8;
         }
 
-        /* Footer */
+        .btn-download:hover span {
+            color: white;
+            background: transparent;
+        }
+
+        .btn-download:hover i {
+            color: white;
+        }
+
+        /* Enhanced Footer */
         footer {
             background: var(--secondary);
             border-top: 1px solid var(--border);
@@ -913,7 +919,7 @@
             font-size: 1.2rem;
         }
 
-        /* Toast Notifications */
+        /* Enhanced Toast Notifications */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -951,15 +957,15 @@
             font-size: 1.2rem;
         }
 
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes float {
             0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
             50% { transform: translate(-50%, -50%) translateY(-20px); }
         }
 
         @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         @keyframes slideInDown {
@@ -1013,9 +1019,15 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes pulseGlow {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+            }
         }
 
         /* Responsive Design */
@@ -1092,11 +1104,11 @@
                 height: 160px;
             }
             
-            .profile-icon-badge {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                bottom: 15px;
+            .cyber-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                bottom: 10px;
             }
             
             .theme-toggle {
@@ -1113,12 +1125,12 @@
     </style>
 </head>
 <body>
-    <!-- Theme Toggle -->
+    <!-- Enhanced Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fas fa-moon"></i>
     </button>
 
-    <!-- Header -->
+    <!-- Enhanced Header -->
     <header>
         <div class="header-decoration"></div>
         <div class="container">
@@ -1131,7 +1143,7 @@
     <main>
         <div class="container">
             <div class="content-wrapper">
-                <!-- New Profile Card Design -->
+                <!-- Enhanced Profile Card -->
                 <section class="profile-section">
                     <div class="profile-card">
                         <div class="profile-header">
@@ -1140,7 +1152,7 @@
                                     <div class="profile-image">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <div class="profile-icon-badge">
+                                    <div class="cyber-badge">
                                         <i class="fas fa-shield-alt"></i>
                                     </div>
                                 </div>
@@ -1153,14 +1165,14 @@
                         </div>
                         <div class="profile-specialization">
                             <div class="specialization-icon">
-                                <i class="fas fa-code"></i>
+                                <i class="fas fa-lock"></i>
                             </div>
                             <div class="specialization-text">Cyber Security & Programming</div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Contact Details -->
+                <!-- Enhanced Contact Details -->
                 <section class="contact-section">
                     <div class="contact-details">
                         <div class="contact-header">
@@ -1253,7 +1265,7 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
+                        <!-- Enhanced Action Buttons -->
                         <div class="action-buttons">
                             <button class="glow-button btn-call" id="callButton">
                                 <span><i class="fas fa-phone"></i> Call</span>
@@ -1269,7 +1281,7 @@
                 </section>
             </div>
 
-            <!-- Download Section -->
+            <!-- Enhanced Download Section -->
             <div class="download-section">
                 <div class="download-decoration"></div>
                 <h3 class="download-title">Download Contact Card</h3>
@@ -1283,7 +1295,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Enhanced Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1300,7 +1312,7 @@
         </div>
     </footer>
 
-    <!-- Toast Notification -->
+    <!-- Enhanced Toast Notification -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span class="toast-message" id="toast-message"></span>
@@ -1317,48 +1329,7 @@
             birthdate: "20090612"
         };
 
-        // Individual Glow Effects for Each Button
-        const syncGlowPointer = (event, glowIndex) => {
-            const x = event.clientX.toFixed(2);
-            const y = event.clientY.toFixed(2);
-            document.documentElement.style.setProperty(`--glow-${glowIndex}-x`, x);
-            document.documentElement.style.setProperty(`--glow-${glowIndex}-y`, y);
-        };
-
-        // Attach individual glow effects to each button
-        document.querySelectorAll('.glow-button[data-copy="01000006432"]').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 1));
-        });
-
-        document.querySelectorAll('.glow-button[data-copy="01284284043"]').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 2));
-        });
-
-        document.querySelectorAll('.glow-button[data-copy="01557222300"]').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 3));
-        });
-
-        document.querySelectorAll('.glow-button[data-copy="badrelbadry2009@gmail.com"]').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 4));
-        });
-
-        document.querySelectorAll('.btn-call').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 5));
-        });
-
-        document.querySelectorAll('.btn-whatsapp').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 6));
-        });
-
-        document.querySelectorAll('.btn-copy-all').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 7));
-        });
-
-        document.querySelectorAll('.btn-download').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => syncGlowPointer(e, 8));
-        });
-
-        // Theme Management
+        // Enhanced Theme Management
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
@@ -1369,8 +1340,10 @@
             
             if (theme === 'dark') {
                 themeIcon.className = 'fas fa-sun';
+                themeIcon.style.color = '#fbbf24';
             } else {
                 themeIcon.className = 'fas fa-moon';
+                themeIcon.style.color = '#3b82f6';
             }
         }
         
@@ -1383,7 +1356,7 @@
             applyTheme(newTheme);
         });
 
-        // Toast Notification System
+        // Enhanced Toast Notification System
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toast-message');
@@ -1398,7 +1371,7 @@
                     break;
                 case 'error':
                     toastIcon.className = 'fas fa-exclamation-circle';
-                    toastIcon.style.color = 'var(--accent-purple)';
+                    toastIcon.style.color = 'var(--accent-pink)';
                     break;
             }
             
@@ -1409,7 +1382,7 @@
             }, 3000);
         }
 
-        // Copy Functionality
+        // Enhanced Copy Functionality
         document.querySelectorAll('.glow-button[data-copy]').forEach(button => {
             button.addEventListener('click', async function() {
                 const textToCopy = this.getAttribute('data-copy');
@@ -1418,10 +1391,13 @@
                 try {
                     await navigator.clipboard.writeText(textToCopy);
                     
+                    // Enhanced visual feedback
                     this.innerHTML = '<span><i class="fas fa-check"></i> Copied!</span>';
+                    this.style.background = 'var(--accent-green)';
                     
                     setTimeout(() => {
                         this.innerHTML = originalHTML;
+                        this.style.background = '';
                     }, 2000);
                     
                     showToast('Copied to clipboard!', 'success');
@@ -1431,7 +1407,7 @@
             });
         });
 
-        // Copy All Data
+        // Enhanced Copy All Data
         document.getElementById('copyAllButton').addEventListener('click', async function() {
             const allData = `
 Name: ${contactData.name}
@@ -1452,7 +1428,7 @@ Specialization: Cyber Security & Programming
             }
         });
 
-        // Call Button (Mobile Only)
+        // Enhanced Call Button (Mobile Only)
         const callButton = document.getElementById('callButton');
         if (!/Mobi|Android/i.test(navigator.userAgent)) {
             callButton.style.display = 'none';
@@ -1462,7 +1438,7 @@ Specialization: Cyber Security & Programming
             });
         }
 
-        // Download VCF
+        // Enhanced Download VCF
         document.getElementById('downloadVCF').addEventListener('click', function() {
             const vcfContent = `BEGIN:VCARD
 VERSION:3.0
@@ -1496,7 +1472,7 @@ END:VCARD`;
             showToast('vCard downloaded successfully!', 'success');
         });
 
-        // Interactive hover effects
+        // Enhanced Interactive Effects
         document.querySelectorAll('.contact-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-3px) scale(1.02)';
@@ -1507,18 +1483,39 @@ END:VCARD`;
             });
         });
 
-        // Add some random animation to profile elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const profileImage = document.querySelector('.profile-image');
-            const profileBadge = document.querySelector('.profile-icon-badge');
+        // Enhanced Cyber Badge Animation
+        const cyberBadge = document.querySelector('.cyber-badge');
+        setInterval(() => {
+            cyberBadge.style.transform = 'scale(1.1) rotate(15deg)';
+            setTimeout(() => {
+                cyberBadge.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+        }, 4000);
+
+        // Enhanced Button Hover Effects
+        document.querySelectorAll('.glow-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
             
-            setInterval(() => {
-                profileBadge.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    profileBadge.style.transform = 'scale(1)';
-                }, 300);
-            }, 5000);
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
+
+        // Enhanced Specialization Icon Animation
+        const specIcon = document.querySelector('.specialization-icon');
+        specIcon.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.2) rotate(15deg)';
+        });
+        
+        specIcon.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+
+        console.log('🚀 Enhanced Contact Card Loaded Successfully!');
+        console.log('✨ Features: Individual Button Animations, Enhanced Icons, Better Colors');
+        console.log('🎨 Design: Professional & Modern with Smooth Animations');
     </script>
 </body>
 </html>
